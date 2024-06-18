@@ -1,5 +1,8 @@
 from flask import Flask, redirect, render_template, request
 import os
+import json
+import requests 
+
 
 appWeb = Flask(__name__)
 
@@ -109,6 +112,21 @@ def registrazione_post():
     loggedUser = utente
     lista_utenti.append(utente)
 
+    #esempio semplice
+
+    url ="https://nodered-65642.azurewebsites.net/ciaone?usernameStr={}".format(usernameStr)
+
+
+##1) da get a post
+#url = "https://congenial-couscous-6xqj4r4566xhx6xv-3000.app.github.dev/devices"
+#data = {'nome': 'anna', 'cognome': 'chiodo'}
+#headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    r = requests.get(url)
+
+#2) aggiungere il body alla req
+
+#html = response.read()
+#print(r)
     return redirect("/home")
 
 if __name__ == "__main__":
