@@ -2,6 +2,8 @@ from flask import Flask, redirect, render_template, request
 import os
 import json
 import requests 
+import mysql.connector
+from mysql.connector import Error
 
 
 appWeb = Flask(__name__)
@@ -58,7 +60,36 @@ loggedUser = None
 
 @appWeb.route("/")
 def main():
-    return "ciaone"
+    connection = None
+    risposta="nessuna risposta"
+    try:
+        connection = mysql.connector.connect(
+            host="92447.mysql.database.azure.com",
+            user="psqladmin",
+            passwd="H@Sh1CoR3!",
+            database="minddb"
+        )
+        risposta="Connection to MySQL DB successful"
+    except Error as e:
+        risposta=f"The error '{e}' occurred"
+    return risposta
+'''
+    cursor = connection.cursor()
+    create_table_query = """
+    CREATE TABLE IF NOT EXISTS sample_table (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL
+    );
+    """
+    try:
+        cursor.execute(create_table_query)
+        connection.commit()
+        print("Table created successfully")
+    except Error as e:
+        print(f"The error '{e}' occurred")
+
+'''
+    
 
 @appWeb.route("/prova")
 def prova():
