@@ -70,7 +70,7 @@ def main():
             database="minddb"
         )
         risposta="Connection to MySQL DB successful"
-        cnx = mysql.connector.connect(user='psqladmin', database='employees')
+        cnx = mysql.connector.connect(user='psqladmin', database='minddb')
         cursor = cnx.cursor()
 
         query = ("SELECT first_name, last_name FROM employees")
