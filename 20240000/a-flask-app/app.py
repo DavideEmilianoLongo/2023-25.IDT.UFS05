@@ -80,7 +80,6 @@ def main():
         for (first_name, last_name, ) in cursor:
             risposta = first_name
         cursor.close()
-        cnx.close()
     except Error as e:
         risposta=f"The error '{e}' occurred"
     return risposta
