@@ -64,15 +64,29 @@ def main():
     risposta="nessuna risposta"
     try:
         connection = mysql.connector.connect(
-            host="92447.mysql.database.azure.com",
+            host="its-rizzoli-idt-mysql-92447.mysql.database.azure.com",
             user="psqladmin",
             passwd="H@Sh1CoR3!",
             database="minddb"
         )
         risposta="Connection to MySQL DB successful"
+        cnx = mysql.connector.connect(user='psqladmin', database='employees')
+        cursor = cnx.cursor()
+
+        query = ("SELECT first_name, last_name FROM employees")
+
+        
+        cursor.execute(query)
+
+        for (first_name, last_name, ) in cursor:
+            risposta = first_name
+        cursor.close()
+        cnx.close()
     except Error as e:
         risposta=f"The error '{e}' occurred"
     return risposta
+
+
 '''
     cursor = connection.cursor()
     create_table_query = """
