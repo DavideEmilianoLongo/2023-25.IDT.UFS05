@@ -40,7 +40,7 @@ def initialize_database():
     try:
         # Connessione senza specificare il database, per permettere la creazione del database stesso
         connection = mysql.connector.connect(
-            host="its-rizzoli-idt-mysql-53359.mysql.database.azure.com",
+            host="its-rizzoli-idt-mysql-32761.mysql.database.azure.com",
             user="psqladmin",
             passwd="H@Sh1CoR3!"
         )
@@ -69,7 +69,7 @@ def main():
     risposta = "nessuna risposta"
     try:
         connection = mysql.connector.connect(
-            host="its-rizzoli-idt-mysql-53359.mysql.database.azure.com",
+            host="its-rizzoli-idt-mysql-32761.mysql.database.azure.com",
             user="psqladmin",
             passwd="H@Sh1CoR3!",
             database="ufs05db"
@@ -122,7 +122,7 @@ def saveuser():
     listaUser.append(User(usernameStr, passwordStr, emailStr))
 
 
-    url ="https://nodered-65642.azurewebsites.net/ciaone?usernameStr={}&emailStr={}".format(usernameStr, emailStr)
+    url ="https://nodered-32761.azurewebsites.net/ciaone?usernameStr={}&emailStr={}".format(usernameStr, emailStr)
 
 
 # data = {'nome': 'anna', 'cognome': 'chiodo'}
