@@ -86,7 +86,7 @@ def main():
         connection.close()
     except Error as e:
         risposta = f"The error '{e}' occurred"
-    return risposta
+    return  f"{risposta} pirla"
 
 @appWeb.route("/registrazione")
 def registrazione():
