@@ -81,12 +81,12 @@ def main():
         cursor.execute(query)
 
         for (first_name, last_name) in cursor:
-            risposta = first_name
+            risposta = first_name +last_name
         cursor.close()
         connection.close()
     except Error as e:
         risposta = f"The error '{e}' occurred"
-    return  f"{risposta} pirla"
+    return  risposta
 
 @appWeb.route("/registrazione")
 def registrazione():
