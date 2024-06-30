@@ -1,5 +1,5 @@
 -- script.sql
-CREATE DATABASE ufs05db;
+CREATE DATABASE IF NOT EXISTS ufs05db;
 USE ufs05db;
 CREATE TABLE employees (
   first_name varchar(45) DEFAULT NULL,
